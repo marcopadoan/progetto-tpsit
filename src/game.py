@@ -232,8 +232,8 @@ def esegui_gioco(n_lvl, diff: Difficulty):
     camera = Camera(WORLD_W, WORLD_H)
 
     giocatore = Player(WORLD_W // 2, WORLD_H // 2)
-    inv: list[Weapons] = [Weapons.PUGNI, Weapons.PISTOLA, Weapons.MITRAGLIETTA]
-    munizioni = {Weapons.PISTOLA: 1000, Weapons.MITRAGLIETTA: 1000}
+    inv: list[Weapons] = [Weapons.PUGNI]
+    munizioni = {Weapons.PISTOLA: 0, Weapons.MITRAGLIETTA: 0}
 
     nemici = []
     n_nemici = diff.value[0] + (diff.value[1] - n_lvl) * diff.value[2]
@@ -261,8 +261,7 @@ def esegui_gioco(n_lvl, diff: Difficulty):
 
     muri, detriti = gen_objs(WORLD_W, WORLD_H)
 
-    run = True
-    while run:
+    while True:
         now = pygame.time.get_ticks()
         m_x, m_y = pygame.mouse.get_pos()
         m_btn = pygame.mouse.get_pressed()
